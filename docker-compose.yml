@@ -1,0 +1,83 @@
+version: '3.8'
+services:
+  counter_context:
+    build: ./webpackcountercontext
+    container_name: counter_context
+    ports:
+      - '8000:3000'
+    volumes:
+      - ./webpackcountercontext:/app
+    stdin_open: true
+    tty: true
+  counter_effector:
+    build: ./webpackcountereffector
+    container_name: counter_effector
+    ports:
+      - '8001:3000'
+    volumes:
+      - ./webpackcountereffector:/app
+    stdin_open: true
+    tty: true
+  counter_redux:
+    build: ./webpackcounterredux
+    container_name: counter_redux
+    ports:
+      - '8002:3000'
+    volumes:
+      - ./webpackcounterredux:/app
+    stdin_open: true
+    tty: true
+  fetching_context:
+    build: ./webpackfetchingcontext
+    container_name: fetching_context
+    ports:
+      - '8003:3000'
+    volumes:
+      - ./webpackfetchingcontext:/app
+    stdin_open: true
+    tty: true
+  fetching_effector:
+    build: ./webpackfetchingeffector
+    container_name: fetching_effector
+    ports:
+      - '8004:3000'
+    volumes:
+      - ./webpackfetchingeffector:/app
+    stdin_open: true
+    tty: true
+  fetching_redux:
+    build: ./webpackfetchingredux
+    container_name: fetching_redux
+    ports:
+      - '8005:3000'
+    volumes:
+      - ./webpackfetchingredux:/app
+    stdin_open: true
+    tty: true
+  todo_context:
+    build: ./webpacktodocontext
+    container_name: todo_context
+    ports:
+      - '8006:3000'
+    volumes:
+      - ./webpacktodocontext:/app
+    stdin_open: true
+    tty: true
+  todo_effector:
+    build: ./webpacktodoeffector
+    container_name: todo_effector
+    ports:
+      - '8007:3000'
+    volumes:
+      - ./webpacktodoeffector:/app
+    stdin_open: true
+    tty: true
+  todo_redux:
+    build: ./webpacktodoredux
+    container_name: todo_redux
+    ports:
+      - '8008:3000'
+    volumes:
+      - ./webpacktodoredux:/app
+    stdin_open: true
+    tty: true
