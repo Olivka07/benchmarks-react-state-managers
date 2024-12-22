@@ -10,6 +10,17 @@ export function buildLoaders({isDev}: WebpackConfigOptions):webpack.RuleSetRule[
         exclude: /node_modules/,
     }
 
+    const babelLoader = {
+      test: /\.m?js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    };
+
     const sassLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -31,6 +42,7 @@ export function buildLoaders({isDev}: WebpackConfigOptions):webpack.RuleSetRule[
     }
 
     return [
+        babelLoader,
         tsLoader,
         sassLoader
     ]
