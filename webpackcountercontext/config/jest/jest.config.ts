@@ -3,13 +3,11 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from "jest";
 
 const config: Config = {
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: [
-    "node_modules"
-  ],
+  moduleDirectories: ["node_modules"],
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
   // Automatically clear mock calls, instances, contexts and results before every test
@@ -19,27 +17,13 @@ const config: Config = {
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
-  ],
+  moduleFileExtensions: ["js", "mjs", "cjs", "jsx", "ts", "tsx", "json", "node"],
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [
-    "\\\\node_modules\\\\"
-  ],
+  coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
   // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../',
+  rootDir: "../../",
   // The glob patterns Jest uses to detect test files
-  testMatch: [
-    "<rootDir>src/**/*(*.)@(test|spec).[tj]s?(x)"
-  ],
-
+  testMatch: ["<rootDir>src/**/*(*.)@(test|spec).[tj]s?(x)"]
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -49,7 +33,6 @@ const config: Config = {
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "C:\\Users\\uchen\\AppData\\Local\\Temp\\jest",
-
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
@@ -93,7 +76,6 @@ const config: Config = {
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
-  
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
