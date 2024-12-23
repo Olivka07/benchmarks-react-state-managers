@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ "counter/context" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate_code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: webpackcountercontext
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint:check
+
+      - name: Test
+        run: npm run test
