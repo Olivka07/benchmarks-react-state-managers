@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ "counter/context" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   validate_code:
@@ -24,3 +22,17 @@ jobs:
 
       - name: Test
         run: npm run test
+        
+  merge-branch:
+    needs: validate_code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Merge counter/context -> main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          message: Merge commit from counter/context into main
+          github_token: ${{ secrets.token }}
