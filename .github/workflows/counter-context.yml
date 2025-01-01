@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Dependencies Installing
+        run: npm i
+
       - name: Format
         run: npm run format:check
 
@@ -24,6 +27,7 @@ jobs:
         run: npm run test
         
   merge-branch:
+    permissions: write-all
     needs: validate_code
     runs-on: ubuntu-latest
     steps:
@@ -35,4 +39,4 @@ jobs:
           type: now
           target_branch: main
           message: Merge commit from counter/context into main
-          github_token: ${{ secrets.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
