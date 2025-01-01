@@ -1,10 +1,4 @@
-import {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  FC,
-  useState,
-} from "react";
+import { PropsWithChildren, createContext, useContext, FC, useState } from "react";
 
 interface ICounterContext {
   counter: number;
@@ -13,7 +7,7 @@ interface ICounterContext {
 
 const CounterContext = createContext<ICounterContext>({
   counter: 0,
-  changeCounter: () => {},
+  changeCounter: () => {}
 });
 
 export const useCounterContext = () => useContext(CounterContext);
@@ -27,7 +21,7 @@ const CounterProvider: FC<PropsWithChildren> = ({ children }) => {
     <CounterContext.Provider
       value={{
         counter,
-        changeCounter,
+        changeCounter
       }}
     >
       {children}
