@@ -22,7 +22,7 @@ function App() {
             width: "100px"
           }}
         >
-          <button style={{ padding: "10px" }} onClick={() => changeCounter(1)}>
+          <button style={{ padding: "5px" }} onClick={() => changeCounter(1)}>
             Inc
           </button>
           <button style={{ padding: "5px" }} onClick={() => changeCounter(-1)}>
