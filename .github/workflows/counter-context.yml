@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Dependencies Installing
+        run: npm i
+
       - name: Format
         run: npm run format:check
 
