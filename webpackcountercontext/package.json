@@ -8,8 +8,8 @@
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "test": "jest --config ./config/jest/jest.config.ts",
-    "format:write": "npx prettier . --write",
-    "format:check": "npx prettier . --check",
+    "format:write": "npx prettier ./src --write",
+    "format:check": "npx prettier ./src --check",
     "lint:check": "eslint \"**/*.{ts, tsx}\"",
     "lint:fix": "eslint \"**/*.{ts, tsx}\" --fix"
   },
