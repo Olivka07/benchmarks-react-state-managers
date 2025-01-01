@@ -27,6 +27,7 @@ jobs:
         run: npm run test
         
   merge-branch:
+    permissions: write-all
     needs: validate_code
     runs-on: ubuntu-latest
     steps:
