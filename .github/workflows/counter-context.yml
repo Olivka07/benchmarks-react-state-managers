@@ -38,4 +38,4 @@ jobs:
           type: now
           target_branch: main
           message: Merge commit from counter/context into main
-          github_token: ${{ secrets.token }}
+          github_token: ${{ secrets.TOKEN }}
