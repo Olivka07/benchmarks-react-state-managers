@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ "counter/context" ]
+
+jobs:
+  validate_code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: webpackcountercontext
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint:check
+
+      - name: Test
+        run: npm run test
+        
+  merge-branch:
+    needs: validate_code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Merge counter/context -> main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          message: Merge commit from counter/context into main
+          github_token: ${{ secrets.token }}
