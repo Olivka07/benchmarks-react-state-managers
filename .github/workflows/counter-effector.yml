@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ "counter/effector" ]
+
+jobs:
+  validate_code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: webpackcountereffector
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependencies Installing
+        run: npm i
+      - name: Format
+        run: npm run format:check
+      - name: Lint
+        run: npm run lint:check
+      - name: Test
+        run: npm run test
+        
+  merge-branch:
+    permissions: write-all
+    needs: validate_code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge counter/effector -> main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          message: Merge commit from counter/effector into main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
