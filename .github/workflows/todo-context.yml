@@ -1,0 +1,34 @@
+name: CI
+on:
+  push:
+    branches: [ "todo/context" ]
+jobs:
+  validate_code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: webpacktodocontext
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependencies Installing
+        run: npm i
+      - name: Format
+        run: npm run format:check
+      - name: Lint
+        run: npm run lint:check
+      - name: Test
+        run: npm run test
+        
+  merge-branch:
+    permissions: write-all
+    needs: validate_code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge todo/context -> main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          message: Merge commit from todo/context into main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
