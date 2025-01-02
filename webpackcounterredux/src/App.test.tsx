@@ -1,5 +1,3 @@
-describe('Component: App', () => {
-    it('Should render correctly', () => {
-        
-    })
-})
+describe("Component: App", () => {
+  it("Should render correctly", () => {});
+});
