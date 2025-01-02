@@ -1,0 +1,135 @@
+// Цвета для светлой темы
+$primary-color: #f9f9f9;
+$text-color: #424242;
+
+// Цвета для темной темы
+$primary-color-dark: #2e2e2c;
+$text-color-dark: #e1e1ff;
+
+$colorPrimaryTextHover: "red";
+$colorInfoTextHover: "red";
+
+html,
+body,
+#root,
+.ant-layout {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  &_light,
+  &_light .label {
+    background: $primary-color !important;
+    color: $text-color !important;
+  }
+
+  &_dark,
+  &_dark .label {
+    background-color: $primary-color-dark !important;
+    color: $text-color-dark !important;
+  }
+}
+
+.form {
+  padding: 10px;
+  width: 200px;
+  .ant-select {
+    width: 100%;
+  }
+  input,
+  .ant-select-selector {
+    height: 32px;
+    width: 100%;
+    padding: 0 11px;
+    display: block;
+    border: solid 1px grey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    &:focus {
+      outline: 0;
+      border: solid 1px rgb(21, 117, 21);
+    }
+  }
+
+  // .ant-select-selector:hover {
+  //     border: solid 1px grey !important;
+  // }
+
+  &_dark input,
+  &_dark .ant-select-selector,
+  &_dark .select_option {
+    background-color: $primary-color-dark !important;
+    color: $text-color-dark !important;
+  }
+  &_light input,
+  &_light .ant-select-selector,
+  &_light .select_option {
+    background: $primary-color !important;
+    color: $text-color !important;
+  }
+
+  &_dark .anticon {
+    color: $text-color-dark !important;
+  }
+
+  &_light .anticon {
+    color: $text-color !important;
+  }
+
+  .ant-input-number {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .ant-input-number-handler {
+    background-color: grey;
+  }
+}
+
+.bgGreen {
+  background-color: green;
+}
+.bgGreen:hover {
+  background-color: green !important;
+}
+
+.ant-table-tbody {
+  border: none;
+  tr {
+    border: none;
+  }
+}
+.ant-table-cell {
+  border: none !important;
+}
+.ant-table-row:last-child {
+  .ant-table-cell {
+    border-bottom: 1px solid grey !important;
+  }
+}
+
+.ant-table-cell:last-child {
+  border-right: 1px solid grey !important;
+}
+
+.ant-table-body::-webkit-scrollbar {
+  display: none;
+}
+
+.border-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0px;
+  border: 1px solid grey;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  margin-right: 110px;
+}
