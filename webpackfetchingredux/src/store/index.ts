@@ -1,16 +1,16 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import photoReducer from './reducers/photo.reducer';
-import loadingReducer from './reducers/loading.reducer';
+import photoReducer from "./reducers/photo.reducer";
+import loadingReducer from "./reducers/loading.reducer";
 
 const rootReducer = combineReducers({
-    photoReducer,
-    loadingReducer
-})
+  photoReducer,
+  loadingReducer
+});
 
 export const store = configureStore({
-    reducer: rootReducer
-})
+  reducer: rootReducer
+});
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
