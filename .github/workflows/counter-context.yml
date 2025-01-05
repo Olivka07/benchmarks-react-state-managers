@@ -50,6 +50,9 @@ jobs:
       attestations: write
       id-token: write
     needs: validate_code
+    env:
+      REGISTRY: olivka07
+      IMAGE_NAME: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
 
