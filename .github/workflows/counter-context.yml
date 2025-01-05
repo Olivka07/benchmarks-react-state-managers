@@ -40,6 +40,7 @@ jobs:
           target_branch: main
           message: Merge commit from counter/context into main
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
   push_to_registry:
     name: Push Docker image counter-context to Docker Hub
     runs-on: ubuntu-latest
@@ -50,8 +51,7 @@ jobs:
       id-token: write
     needs: validate_code
     env:
-      REGISTRY: index.docker.io
-      IMAGE_NAME: counter-context
+      IMAGE_NAME: olivka07/counter-context
     steps:
       - uses: actions/checkout@v4
 
@@ -65,7 +65,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: olivka07/${{ env.IMAGE_NAME}}
+          images: ${{ env.IMAGE_NAME}}
 
       - name: Build and push Docker image
         id: push
@@ -80,6 +80,6 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-name: index.docker.io/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
