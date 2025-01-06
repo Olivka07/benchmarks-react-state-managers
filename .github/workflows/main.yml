@@ -13,17 +13,17 @@ jobs:
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Commit message: $COMMIT_MESSAGE"
-          echo "::set-output name=last_commit_msg::$COMMIT_MESSAGE"
+          echo "{last_commit_msg}={$COMMIT_MESSAGE}" >> $GITHUB_OUTPUT
     
       - name: Check for merge commit
         id: is_merge_commit
         run: |
           if [[ "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"Merge commit from"* ]]; then
-            echo "::set-output name=is_merge::true"
+            echo "{is_merge}={true}" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=is_merge::false"
+            echo "{is_merge}={false}" >> $GITHUB_OUTPUT
           fi
     
       - name: Deploy counter/context if it is merged from counter/context
-        if: ${{ steps.is_merge_commit.outputs.is_merge }} && "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"counter/context"*
-        run: echo 'Привет фром каунтер контекст'
+        if: steps.is_merge_commit.outputs.is_merge
+        run: echo ${{ steps.is_merge_commit.outputs.is_merge }}
