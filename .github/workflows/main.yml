@@ -2,7 +2,7 @@ name: CD
 on:
   workflow_call:
     inputs:
-      merged_branch:
+      projectId:
         required: true
         type: string
 jobs:
@@ -10,7 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
     
-      - name: Deploy counter/context if it is merged from counter/context
-        if: inputs.merged_branch == 'counter/context'
-        run: echo ${{ inputs.merged_branch }}
+      - name: Deploy Project to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ inputs.projectId }}
+        run: vercel --token $VERCEL_TOKEN --prod --confirm --scope $VERCEL_ORG_ID --project $VERCEL_PROJECT_ID
