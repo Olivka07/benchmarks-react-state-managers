@@ -25,7 +25,7 @@ jobs:
       - name: Deploy Project to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_COUNTER_CONTEXT_ID }}
+          VERCEL_ORG_ID: team_qLXRwBcllB4CyiwkBpzWiK6B
+          VERCEL_PROJECT_ID: prj_42QgK2dE5URfelohuQj5UFolZVa1
         if: inputs.merged_branch == 'counter/context'
-        run: vercel --prod --confirm --token ZJVrk0PGjvZPpsvxJfo1eUnz --scope team_qLXRwBcllB4CyiwkBpzWiK6B --project prj_42QgK2dE5URfelohuQj5UFolZVa1
+        run: vercel --prod --confirm --token ZJVrk0PGjvZPpsvxJfo1eUnz --scope team_qLXRwBcllB4CyiwkBpzWiK6B
