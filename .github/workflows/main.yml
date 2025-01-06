@@ -13,7 +13,7 @@ jobs:
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Commit message: $COMMIT_MESSAGE"
-          echo "{last_commit_msg}={$COMMIT_MESSAGE}" >> $GITHUB_OUTPUT
+          echo "last_commit_msg=$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
     
       - name: Check for merge commit
         id: is_merge_commit
