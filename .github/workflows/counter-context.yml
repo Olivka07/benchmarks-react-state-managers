@@ -86,6 +86,9 @@ jobs:
           push-to-registry: true
   call-deploy-workflow:
     needs: merge-branch
-    uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
-    with:
-      projectId: ${{ secrets.DOCKER_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
+        with:
+          projectId: ${{ secrets.DOCKER_PASSWORD }}
