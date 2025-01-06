@@ -86,6 +86,8 @@ jobs:
           push-to-registry: true
   call-deploy-workflow:
     needs: merge-branch
+    env:
+      VERCEL_COUNTER_CONTEXT_ID: ${{ secrets.VERCEL_COUNTER_CONTEXT_ID }}
     uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
     with:
-      merged_branch: 'counter/context'
+      projectId: ${{ env.VERCEL_COUNTER_CONTEXT_ID}}
