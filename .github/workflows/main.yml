@@ -28,4 +28,4 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_COUNTER_CONTEXT_ID }}
         if: inputs.merged_branch == 'counter/context'
-        run: vercel --token=ZJVrk0PGjvZPpsvxJfo1eUnz --yes --scope=team_qLXRwBcllB4CyiwkBpzWiK6B --target=prj_42QgK2dE5URfelohuQj5UFolZVa1
+        run: vercel --prod --confirm --token ZJVrk0PGjvZPpsvxJfo1eUnz --scope team_qLXRwBcllB4CyiwkBpzWiK6B --project prj_42QgK2dE5URfelohuQj5UFolZVa1
