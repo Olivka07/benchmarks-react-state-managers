@@ -25,7 +25,7 @@ jobs:
 
       - name: Test
         run: npm run test
-        
+
   merge-branch:
     permissions: write-all
     needs: validate_code
@@ -87,5 +87,5 @@ jobs:
   call-deploy-workflow:
     needs: merge-branch
     uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
-      with:
-        merged_branch: 'counter/context'
+    with:
+      merged_branch: 'counter/context'
