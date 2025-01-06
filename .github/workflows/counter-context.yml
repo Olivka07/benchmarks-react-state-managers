@@ -86,6 +86,6 @@ jobs:
           push-to-registry: true
   call-deploy-workflow:
     needs: merge-branch
-    uses: ./main.yml@main
+    uses: ./.github/workflows/main.yml@main
     with:
       merged_branch: 'counter/context'
