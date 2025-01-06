@@ -6,16 +6,15 @@ jobs:
   check_branch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-        - name: Get last commit message
+      - name: Get last commit message
         id: get_commit_message
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Commit message: $COMMIT_MESSAGE"
           echo "::set-output name=last_commit_msg::$COMMIT_MESSAGE"
-      
+    
       - name: Check for merge commit
         id: is_merge_commit
         run: |
@@ -24,7 +23,7 @@ jobs:
           else
             echo "::set-output name=is_merge::false"
           fi
-      
+    
       - name: Deploy counter/context if it is merged from counter/context
         if: ${{ steps.is_merge_commit.outputs.is_merge }} && "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"counter/context"*
         run: echo 'Привет фром каунтер контекст'
