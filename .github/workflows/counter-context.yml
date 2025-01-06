@@ -84,3 +84,8 @@ jobs:
           subject-name: index.docker.io/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+  call-deploy-workflow:
+    needs: merge-branch
+    uses: ./main.yml@main
+    with:
+      merged_branch: 'counter/context'
