@@ -88,4 +88,4 @@ jobs:
     needs: merge-branch
     uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
     with:
-      projectId: ${{ secrets.VERCEL_COUNTER_CONTEXT_ID}}
+      projectId: ${{ secrets.DOCKER_PASSWORD }}
