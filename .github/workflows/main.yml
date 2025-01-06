@@ -1,42 +1,16 @@
 name: CD
 on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
+  workflow_call:
+    inputs:
+      merged_branch:
+        required: true
+        type: string
 jobs:
-  check_branch:
+  deploy-by-branch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Get last commit message
-        id: get_commit_message
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          echo "Commit message: $COMMIT_MESSAGE"
-          echo "last_commit_msg=$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
-    
-      - name: Check for merge commit
-        id: is_merge_commit
-        run: |
-          if [[ "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"Merge commit from"* ]]; then
-            echo "is_merge=true" >> $GITHUB_OUTPUT
-            if [[ "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"counter/context"* ]]; then
-              echo "merged_branch="counter/context"" >> $GITHUB_OUTPUT
-            elif [[ "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"counter/redux"* ]]; then
-              echo "merged_branch="counter/redux"" >> $GITHUB_OUTPUT
-            elif [[ "${{ steps.get_commit_message.outputs.last_commit_msg }}" == *"counter/effector"* ]]; then
-              echo "merged_branch="counter/effector"" >> $GITHUB_OUTPUT
-            else
-              echo "merged_branch=false" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "is_merge=false" >> $GITHUB_OUTPUT
-            echo "merged_branch="false"" >> $GITHUB_OUTPUT
-          fi
     
       - name: Deploy counter/context if it is merged from counter/context
-        if: (steps.is_merge_commit.outputs.merged_branch == 'counter/context' && steps.is_merge_commit.outputs.is_merge)
-        run: echo ${{ steps.is_merge_commit.outputs.is_merge }} ${{ steps.is_merge_commit.outputs.merged_branch }}
+        if: inputs.merged_branch == 'counter/context'
+        run: echo ${{ inputs.merged_branch }}
