@@ -19,7 +19,7 @@ function App() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            width: "101px"
+            width: "100px"
           }}
         >
           <button style={{ padding: "5px" }} onClick={() => changeCounter(1)}>
