@@ -31,9 +31,9 @@ jobs:
             fi
           else
             echo "is_merge=false" >> $GITHUB_OUTPUT
-            echo "merged_branch="blablabla"" >> $GITHUB_OUTPUT
+            echo "merged_branch="false"" >> $GITHUB_OUTPUT
           fi
     
       - name: Deploy counter/context if it is merged from counter/context
-        if: steps.is_merge_commit.outputs.merged_branch == 'blablabla'
+        if: (steps.is_merge_commit.outputs.merged_branch == 'counter/context' && steps.is_merge_commit.outputs.is_merge)
         run: echo ${{ steps.is_merge_commit.outputs.is_merge }} ${{ steps.is_merge_commit.outputs.merged_branch }}
