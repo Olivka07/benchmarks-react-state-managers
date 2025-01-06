@@ -8,7 +8,7 @@ function App() {
     <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
       <div>
         <h1 style={{ textAlign: "center" }}>{counter}</h1>
-        <div style={{ display: "flex", justifyContent: "space-between", width: "101px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", width: "100px" }}>
           <button style={{ padding: "5px" }} onClick={() => changeCounter(1)}>
             Inc
           </button>
