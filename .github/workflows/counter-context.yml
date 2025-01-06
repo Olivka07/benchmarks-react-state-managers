@@ -87,8 +87,10 @@ jobs:
   call-deploy-workflow:
     needs: merge-branch
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       
-      - uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
+      - name: Call workflow
+        uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
         with:
           projectId: ${{ secrets.DOCKER_PASSWORD }}
