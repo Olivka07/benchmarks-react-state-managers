@@ -20,6 +20,4 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_COUNTER_CONTEXT_ID }}
         if: inputs.merged_branch == 'counter/context'
-        run: |
-        echo $VERCEL_TOKEN
-        vercel --token $VERCEL_TOKEN --prod --confirm --scope $VERCEL_ORG_ID --project $VERCEL_PROJECT_ID
+        run: echo $VERCEL_TOKEN
