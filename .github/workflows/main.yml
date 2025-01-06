@@ -13,6 +13,14 @@ jobs:
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
+
+      - name: Check Secret
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "Secret empty"
+          else
+            echo "Secret is AVAILABLE"
+          fi
     
       - name: Deploy Project to Vercel
         env:
@@ -20,4 +28,4 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_COUNTER_CONTEXT_ID }}
         if: inputs.merged_branch == 'counter/context'
-        run: vercel --token=${{ env.VERCEL_TOKEN }} --prod --confirm --scope=${{ env.VERCEL_ORG_ID }} --project=${{ env.VERCEL_PROJECT_ID }}
+        run: vercel --token=ZJVrk0PGjvZPpsvxJfo1eUnz --prod --confirm --scope=team_qLXRwBcllB4CyiwkBpzWiK6B --project=prj_42QgK2dE5URfelohuQj5UFolZVa1
