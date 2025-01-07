@@ -1,10 +1,9 @@
 name: CD
 on:
   workflow_call:
-    inputs:
+    secrets:
       deploying_url:
         required: true
-        type: string
 jobs:
   deploy-by-url:
     runs-on: ubuntu-latest
@@ -13,5 +12,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Vercel
-        run: curl -X POST "${{ inputs.deploying_url }}"
+        run: curl -X POST "${{ secrets.deploying_url }}"
 
