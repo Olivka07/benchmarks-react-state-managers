@@ -1,0 +1,16 @@
+{
+    "git": {
+        "deploymentEnabled": {
+            "main": false,
+            "counter/context": false,
+            "counter/redux": false,
+            "counter/effector": false,
+            "fetching/context": false,
+            "fetching/redux": false,
+            "fetching/effector": false,
+            "todo/context": false,
+            "todo/redux": false,
+            "todo/effector": false
+        }
+    }
+}
