@@ -76,3 +76,9 @@ jobs:
           subject-name: index.docker.io/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+
+  call-deploy-workflow:
+    needs: merge-branch
+    uses: Olivka07/benchmarks-react-state-managers/.github/workflows/main.yml@main
+    secrets:
+      deploying_url: ${{ secrets.DEPLOYING_TODO_EFFECTOR_URL }}
