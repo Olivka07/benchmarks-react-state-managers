@@ -16,7 +16,7 @@
 4) automatic deployment from the main branch to vercel.
 
 ### Table with links to web apps
-| State-Managers\Applications  | Low-component  | Multi-component | Asynchronous requests |
+| State-Managers\Applications  | Low-component  | Asynchronous requests | Multi-component |
 | ------------- | ------------- | ------------- | ------------- |
 | `React Context`  | [CLICK ME](https://benchmarks-react-state-managers-counter-context.vercel.app/)  | [CLICK ME](https://benchmarks-react-state-managers-fetching-context.vercel.app/)  | [CLICK ME](https://benchmarks-react-state-managers-todo-context.vercel.app/)  |
 | `Redux Toolkit`  | [CLICK ME](https://benchmarks-react-state-managers-counter-redux.vercel.app/)  | [CLICK ME](https://benchmarks-react-state-managers-fetching-redux.vercel.app/)  | [CLICK ME](https://benchmarks-react-state-managers-todo-redux.vercel.app/)  |

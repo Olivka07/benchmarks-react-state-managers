@@ -1,0 +1,45 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    width: max-content;
+    margin: auto;
+    padding-top: 20px;
+}
+
+table, td, th {
+    border: 3px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #3653c5;
+}
+
+.td__link {
+    text-align: center;
+}
+
+.diagonal-line {
+    background-image: linear-gradient(to top right, transparent 49%, #000000, transparent 51%);
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.diagonal__left-text {
+    margin-right: 20px;
+    position: relative;
+    top: 10px;
+}
+
+.diagonal__right-text {
+    position: relative;
+    top: -8px;
+}
