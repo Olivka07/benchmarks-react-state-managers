@@ -1,0 +1,17 @@
+name: CD
+on:
+  workflow_call:
+    inputs:
+      deploying_url:
+        required: true
+        type: string
+jobs:
+  deploy-by-url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        run: curl -X POST "${{ inputs.deploying_url }}"
+
