@@ -23,7 +23,13 @@ const config: Config = {
   // The root directory that Jest should scan for tests and modules within
   rootDir: "../../",
   // The glob patterns Jest uses to detect test files
-  testMatch: ["<rootDir>src/**/*(*.)@(test|spec).[tj]s?(x)"]
+  testMatch: ["<rootDir>src/**/*(*.)@(test|spec).[tj]s?(x)"],
+  // A list of paths to modules that run some code to configure or set up the testing framework before each test
+  setupFilesAfterEnv: ["<rootDir>src/setupTests.ts"],
+  // A map from regular expressions to paths to transformers
+  transform: {
+    "^.+\\.[jt]sx?$": "babel-jest" // Преобразование файлов .js .ts и .jsx .tsx с помощью babel-jest
+  }
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -121,9 +127,6 @@ const config: Config = {
   // The paths to modules that run some code to configure or set up the testing environment before each test
   // setupFiles: [],
 
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
-
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
 
@@ -149,9 +152,6 @@ const config: Config = {
 
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
-
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

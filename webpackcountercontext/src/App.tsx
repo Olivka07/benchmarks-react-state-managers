@@ -1,9 +1,11 @@
-import React from "react";
 import { useCounterContext } from "./context/CounterContext";
 
 function App() {
   const { changeCounter, counter } = useCounterContext();
-  console.log("as");
+
+  const increment = () => changeCounter(1);
+  const decrement = () => changeCounter(-1);
+
   return (
     <div
       style={{
@@ -14,19 +16,20 @@ function App() {
       }}
     >
       <div>
-        <h1 style={{ textAlign: "center" }}>{counter}</h1>
+        <h1 data-testid="counter" style={{ textAlign: "center" }}>
+          Counter:{counter}
+        </h1>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            width: "105px"
+            justifyContent: "space-between"
           }}
         >
-          <button style={{ padding: "5px" }} onClick={() => changeCounter(1)}>
-            Inc
+          <button data-testid="incButton" style={{ padding: "5px" }} onClick={increment}>
+            Increment
           </button>
-          <button style={{ padding: "5px" }} onClick={() => changeCounter(-1)}>
-            Dec
+          <button style={{ padding: "5px" }} onClick={decrement}>
+            Decrement
           </button>
         </div>
       </div>
