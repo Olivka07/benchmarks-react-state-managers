@@ -8,13 +8,13 @@ function App() {
   return (
     <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
       <div>
-        <h1 style={{ textAlign: "center" }}>{counter}</h1>
-        <div style={{ display: "flex", justifyContent: "space-between", width: "100px" }}>
+        <h1 style={{ textAlign: "center" }}>Counter:{counter}</h1>
+        <div style={{ display: "flex", justifyContent: "space-between"}}>
           <button style={{ padding: "5px" }} onClick={() => dispatch(changeCounter(1))}>
-            Inc
+            Increment
           </button>
           <button style={{ padding: "5px" }} onClick={() => dispatch(changeCounter(-1))}>
-            Dec
+            Decrement
           </button>
         </div>
       </div>
